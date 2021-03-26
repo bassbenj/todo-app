@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form method="POST">
+		<table>
+			<tr>
+				<td><label for="title">Title</label></td>
+				<td><input type="text" name="title" id="title" placeholder="Title" value="" required></td>
+			</tr>
+			<tr>
+				<td><label for="description">Description</label></td>
+				<td><input type="" name="description", id="description" placeholder="Description" value=""></td>
+			</tr>
+			<tr>
+				<td><label for="due_date">Due Date</label></td>
+				<td><input type="date" name="due_date", id="due_date" value=""></td>
+			</tr>
+			<tr>
+				<td><label for="priority">Priority Level</label></td>
+				<td><input type="number" name="priority", id="priority" value=""></td>
+			</tr>
+			<tr>
+				<td><label for="status">Status</label></td>
+				<td>
+					<select id="status" name="status">
+						<option value="New" selected="selected">New</option>
+						<option value="On Going">On Going</option>
+						<option value="Done">Done</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Submit"></td>
+				<td><a><button onclick="history.back()">Back</button></a></td>
+			</tr>	
+		</table>
+		<input type="hidden" name="user_id" id="user_id" value="{{user_id}}">
+	</form>
+</body>
+</html>

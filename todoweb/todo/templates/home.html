@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1> Hello! {{user_info.firstname}}</h1>
+	<table >
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>Title</td>
+				<td>Description</td>
+				<td>Due Date</td>
+				<td>Priority</td>
+				<td>Status</td>
+				<td>Update</td>
+				<td>Delete</td>
+			</tr>
+		</thead>
+		{% if data %}
+			{% for row in data %}
+				<tr>
+					<form method='POST'>
+						<input type="hidden" name="user_id" value="{{user_info.user_id}}">
+						<input type="hidden" name="todo_list_id" value="{{row.todo_list_id}}">
+						<td>{{row.todo_list_id}}</td>
+						<td>{{row.title}}</td>
+						<td>{{row.description}}</td>
+						<td>{{row.due_date}}</td>
+						<td>{{row.priority}}</td>
+						<td>{{row.status}}</td>
+						<td><input type="submit" name="submit" value="Update"></td>
+						<td><input type="submit" name="submit" value="Delete"></td>
+					</form>
+				</tr>
+			{% endfor %}
+		{% else %}
+			<tr>
+				<td colspan="7">No task today.</td>
+			</tr>
+		{% endif %}
+	</table>
+	<a href="/home/{{user_info.user_id}}/task"><button>Create Task</button></a>
+	<a href="/"><button>Logout</button></a>
+	<a href="/delete/{{user_info.user_id}}"><button>Delete User</button></a>
+</body>
+</html>
